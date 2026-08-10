@@ -3,6 +3,7 @@ kind: Application
 metadata:
   name: rancher
   namespace: argocd
+
 spec:
   project: default
 
@@ -10,20 +11,18 @@ spec:
     server: https://kubernetes.default.svc
     namespace: cattle-system
 
-  source:
-    repoURL: https://releases.rancher.com/server-charts/latest
-    chart: rancher
-    targetRevision: 2.14.3
-
-    helm:
-      valueFiles:
-        - $values/helm-values/rancher/values.yaml
-
   sources:
+
+    # Rancher Helm chart
     - repoURL: https://releases.rancher.com/server-charts/latest
       chart: rancher
       targetRevision: 2.14.3
 
+      helm:
+        valueFiles:
+          - $values/helm-values/rancher/values.yaml
+
+    # Our Git repository containing values
     - repoURL: https://github.com/Shashwot023/rke2homelab.git
       targetRevision: main
       ref: values
