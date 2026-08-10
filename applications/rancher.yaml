@@ -13,11 +13,20 @@ spec:
   source:
     repoURL: https://releases.rancher.com/server-charts/latest
     chart: rancher
-    targetRevision: v2.14.3
+    targetRevision: 2.14.3
 
     helm:
       valueFiles:
-      - values/rancher/values.yaml
+        - $values/helm-values/rancher/values.yaml
+
+  sources:
+    - repoURL: https://releases.rancher.com/server-charts/latest
+      chart: rancher
+      targetRevision: 2.14.3
+
+    - repoURL: https://github.com/Shashwot023/rke2homelab.git
+      targetRevision: main
+      ref: values
 
   syncPolicy:
     automated:
@@ -25,4 +34,4 @@ spec:
       selfHeal: true
 
     syncOptions:
-    - CreateNamespace=true
+      - CreateNamespace=true
