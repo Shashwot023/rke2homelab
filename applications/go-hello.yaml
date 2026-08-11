@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: go-hello
+  namespace: argocd
+
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/Shashwot023/goapplication.git
+    targetRevision: main
+    path: helm/go-hello
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: go-hello
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+
+    syncOptions:
+      - CreateNamespace=true
