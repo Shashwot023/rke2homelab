@@ -8,7 +8,7 @@ spec:
   project: default
 
   source:
-    repoURL: https://github.com/Shashwot023/goapplication.git
+    repoURL: https://github.com/Shashwot023/go-hello.git
     targetRevision: main
     path: helm/go-hello
 
