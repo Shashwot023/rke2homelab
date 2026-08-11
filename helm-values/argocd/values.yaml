@@ -1,0 +1,6 @@
+global:
+  domain: argocd.shash.com
+
+configs:
+  params:
+    server.insecure:true
