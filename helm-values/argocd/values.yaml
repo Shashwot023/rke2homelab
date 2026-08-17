@@ -10,7 +10,7 @@ configs:
 
     oidc.config: |
       name: Keycloak
-      issuer: https://keycloak.shash.com/realms/rke2
+      issuer: http://keycloak.shash.com/realms/rke2
       clientID: argocd
       clientSecret: $oidc.keycloak.clientSecret
       requestedScopes: ["openid", "profile", "email", "groups", "offline_access"]
