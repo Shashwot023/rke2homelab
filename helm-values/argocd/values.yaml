@@ -10,11 +10,10 @@ configs:
 
     oidc.config: |
       name: Keycloak
-      issuer: http://keycloak.shash.com/realms/rke2
+      issuer: https//keycloak.shash.com/realms/rke2
       clientID: argocd
       clientSecret: $oidc.keycloak.clientSecret
       requestedScopes: ["openid", "profile", "email"]
-      insecureSkipVerify: true
 
 server:
   ingress:
@@ -28,3 +27,42 @@ server:
     extraTls:
       - hosts:
           - argocd.shash.com
+
+  tls:
+    annotations: {}
+      
+    certificates:
+      keycloak.shash.com: |
+        -----BEGIN CERTIFICATE-----
+MIIFdzCCA1+gAwIBAgIUR8g+ev21kJbRxsVVllKJhlIjM18wDQYJKoZIhvcNAQEL
+BQAwSzELMAkGA1UEBhMCTlAxGTAXBgNVBAoMEFNoYXNod290IEhvbWVsYWIxITAf
+BgNVBAMMGFNoYXNod290IEhvbWVsYWIgUm9vdCBDQTAeFw0yNjA4MTcxMTAzNDBa
+Fw0zNjA4MTQxMTAzNDBaMEsxCzAJBgNVBAYTAk5QMRkwFwYDVQQKDBBTaGFzaHdv
+dCBIb21lbGFiMSEwHwYDVQQDDBhTaGFzaHdvdCBIb21lbGFiIFJvb3QgQ0EwggIi
+MA0GCSqGSIb3DQEBAQUAA4ICDwAwggIKAoICAQC1MZ86HmND18xhecUAKy827Fk9
+EsR0wVfIIPux90ze15rewnp6i4s7u1qXlWJEw+JoYpEdQLUG9i79jgH8NyNwuPPL
+9oE1Jc1I0Ghb1qCwntLP8PzhWzodmydwgS4CKiyEiiFsVubD0hZYvMYWlEHWd9M+
+4XnECzyElAcP31EihRa9Ma+LPncywsxOvgA6QqEXAohe5DhfoCTosyK70zzFUlaU
+Fjch5LLu/91Wv1kkbLnBKKWm8bzuWtw1UaAWM/jcRpSyOxEuc940Yi70BSnpVih+
+Rimc/lBf0rAyA/Uz0+ktEKUr1pxeu1DyAvDp9++CTJpuJrHE44v50OdtMpr3mxLB
+rojzsy0Behv4TzZ02jY1xDGsHnyhvZQu5zN4kQI/A3iqEB5ejSrtootqMFHgv1vd
+O3B22fzqXTcwM+qLvDt4UQx7R413DR4NZYvk1Ei3iZoPzFxosFwY3MbIqm0pBjY3
+9K2tlFOCd83bM5kd+jmvZdk03t/4VlD+qNSgJcJQOGhDIaN54P0W9Woqu0pY1HOZ
+Lmvc6zPF1D3CLAj0oD/N+OstoCMghB9OpQNc2eUEoHtm7gEKqvjULzW/3MFc+8fc
+W9EoD8RilxijXMlOJCoFpp5nxWx7u3OP/fMwzeCJjnesb+6bUyczse0sQabqrE2t
+zHDdAjjAVlJWpV09vwIDAQABo1MwUTAdBgNVHQ4EFgQUXUaqNAwL3e8vn9/tLPFR
+yvNrJWIwHwYDVR0jBBgwFoAUXUaqNAwL3e8vn9/tLPFRyvNrJWIwDwYDVR0TAQH/
+BAUwAwEB/zANBgkqhkiG9w0BAQsFAAOCAgEAFzSueVd5QQuvCLD6QqSM/fe5pU9O
+C60dwSfo63RPRyquzvsL0c8+rTBcGRVMJv0b3DzZUkQA36iZNUdb5f3XgElsrz3g
+DkpQumcdS7b3qRxjSdzmuXSlqtrOvVwMY1XSSJWY/+/OmT0qWt1igGoLqp4VNUUM
+FclTFaFIB17tdD4YrJ3MQGpB7ABYXZ7tfmG6CC/XH2BI3wWji6DZ6txruRSxJEZm
+hJBr+rnXKRfO0qkufgXIropBTivU+xNifkDgq+99xRPNHNszS1DlJ22Cx4iIXfF1
+I8gwCx5mwVlor6IZ4Q9h+hhH+pUPcCYBwoJ3lgtCF0+W11cxNczHADMtaRkYSzvZ
+oXL/rztveL0gplAjuGcdDi5UESZXfG9EpVwsqtjfpowP+F4BIcvW1Cf0+/MBebFt
+Cba5OI7vA94+JhWZTyQkoAianP4k0cIJF6WMZ6WvBvVq8NGtvdRh25nelZtOUme8
+b0pa1X9Et/asxckj03GBPVf5Yk2hCZmLGn363IDATyup2gMobOe1YeG8mKVcHV1G
+rnS+2EC8r+EeAsdsAG9LlcaBQHbrDqWDCczpGLXrTstAXgMSngR5jZGq2dMuCi/z
+DStVA14pgT/ubXBcMLo99Fl1lydsjgtoW7bqQ0r88IuexprZxTDNoI0ToL4yDvNT
+/IWYqSkD7w9w4To=
+-----END CERTIFICATE-----
+    create: true
