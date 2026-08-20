@@ -46,10 +46,3 @@ ingress:
   enabled: true
   ingressClassName: nginx
   hostname: keycloak.shash.com
-  annotations:
-    cert-manager.io/cluster-issuer: homelab-ca
-  tls: false
-  extraTls:
-    - hosts:
-        - keycloak.shash.com
-      secretName: keycloak-tls
