@@ -14,7 +14,11 @@ configs:
       clientID: argocd
       clientSecret: $oidc.keycloak.clientSecret
       requestedScopes: ["openid", "profile", "email"]
-      rootCA: |
+
+  tls:
+    create: true
+    certificates:
+      keycloak.shash.com: |
         -----BEGIN CERTIFICATE-----
         MIIFuzCCA6OgAwIBAgIUEhlBjefBzXb/PZQ8Pc67QAG8NJUwDQYJKoZIhvcNAQEL
         BQAwbTELMAkGA1UEBhMCTlAxEzARBgNVBAgMClNvbWUtU3RhdGUxEDAOBgNVBAoM
@@ -48,6 +52,7 @@ configs:
         fLd1ZzAsl5FqJPp94W3TCq9oi+Nc/bnA3XqGHpJM/vyzHQaQhYLNbw/QbVjnru74
         Fb04WXUuLD6qI0tM0geg7PvHo97lIRaPTUT2J+Qmg==
         -----END CERTIFICATE-----
+
 
 server:
   ingress:
