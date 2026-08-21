@@ -8,84 +8,14 @@ configs:
   cm:
     url: https://argocd.shash.com
 
+    oidc.tls.insecure.skip.verify: "true"
+
     oidc.config: |
       name: Keycloak
       issuer: https://keycloak.shash.com/realms/rke2
       clientID: argocd
       clientSecret: $oidc.keycloak.clientSecret
       requestedScopes: ["openid", "profile", "email"]
-      rootCA: |
-        -----BEGIN CERTIFICATE-----
-        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
-        -----END CERTIFICATE-----
-
-  tls:
-    create: true
-    certificates:
-      keycloak.shash.com: |
-        -----BEGIN CERTIFICATE-----
-        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
-        -----END CERTIFICATE-----
 
 server:
   ingress:
